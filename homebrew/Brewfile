@@ -1,0 +1,42 @@
+# ==================================================
+# containers.brewfile
+# ==================================================
+brew "podman"
+cask "devpod"
+
+# ==================================================
+# core.brewfile
+# ==================================================
+brew "git"
+brew "neovim"
+brew "ripgrep"
+brew "fd"
+brew "tree-sitter-cli"
+brew "stow"
+brew "mise"
+
+# ==================================================
+# personal.brewfile
+# ==================================================
+cask "obsidian"
+cask "proton-drive"
+cask "proton-mail"
+cask "proton-pass"
+cask "protonvpn"
+cask "unnaturalscrollwheels"
+
+# ==================================================
+# terminal.brewfile
+# ==================================================
+brew "fzf"
+brew "fzf-tab"
+brew "lazygit"
+brew "sshs"
+brew "starship"
+brew "zsh-autosuggestions"
+brew "zsh-syntax-highlighting"
+brew "eza"
+brew "fastfetch"
+cask "font-ibm-plex-mono"
+cask "ghostty"
+

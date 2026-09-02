@@ -1,0 +1,8 @@
+cask "obsidian"
+cask "signal"
+cask "proton-drive"
+cask "proton-mail"
+cask "proton-pass"
+cask "protonvpn"
+cask "unnaturalscrollwheels"
+brew "proton-pass-cli"

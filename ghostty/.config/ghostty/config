@@ -1,0 +1,46 @@
+theme = GitHub Dark High Contrast
+split-divider-color = #fdd39f
+font-family = "IBM Plex Mono"
+font-family-bold = "IBM Plex Mono"
+background-opacity = 1
+background-blur-radius = 25
+
+
+font-size = 20
+shell-integration = zsh
+cursor-style = block
+cursor-style-blink = false
+cursor-color = cell-foreground
+cursor-text = cell-background
+unfocused-split-opacity = 0.55
+
+mouse-hide-while-typing = true
+shell-integration-features = no-cursor
+
+confirm-close-surface = false
+window-decoration = true
+window-padding-x = 10
+window-padding-y = 10
+window-padding-balance = true
+
+copy-on-select = clipboard
+
+keybind = ctrl+space>t=new_tab
+keybind = ctrl+space>n=new_window
+keybind = ctrl+space>x=close_surface
+
+# tab nav
+keybind = ctrl+space>1=goto_tab:1
+keybind = ctrl+space>2=goto_tab:2
+keybind = ctrl+space>3=goto_tab:3
+keybind = ctrl+space>4=goto_tab:4
+keybind = ctrl+space>5=goto_tab:5
+keybind = ctrl+space>6=goto_tab:6
+keybind = ctrl+space>7=goto_tab:7
+keybind = ctrl+space>8=goto_tab:8
+keybind = ctrl+space>9=goto_tab:9
+
+keybind = ctrl+space>h=goto_split:left
+keybind = ctrl+space>j=goto_split:bottom
+keybind = ctrl+space>k=goto_split:top
+keybind = ctrl+space>l=goto_split:right

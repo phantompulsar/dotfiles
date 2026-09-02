@@ -1,0 +1,6 @@
+[include]
+    path = ~/.dotfiles/git/gitconfig-personal
+
+[init]
+    defaultBranch = main
+
