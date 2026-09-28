@@ -1,0 +1,48 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+
+  "model": "opencode-go/glm-5.3",
+  "small_model": "opencode-go/deepseek-v4-flash",
+  "default_agent": "plan",
+  "update": "notify",
+  "share": "manual",
+
+  "permissions": [
+    // Default: ask about absolutely everything not covered below
+    { "action": "*", "resource": "*", "effect": "ask" },
+
+    // Reading project files: fine, needed just to function
+    { "action": "read", "resource": "*", "effect": "allow" },
+
+    // Secrets stay denied no matter what, even inside the project
+    { "action": "read", "resource": "*.env", "effect": "deny" },
+    { "action": "read", "resource": "*.env.*", "effect": "deny" },
+    { "action": "read", "resource": "*.pem", "effect": "deny" },
+    { "action": "read", "resource": "*id_rsa*", "effect": "deny" },
+    { "action": "read", "resource": "**/.ssh/*", "effect": "deny" },
+    { "action": "read", "resource": "**/.aws/*", "effect": "deny" },
+
+    // Never allowed to read outside the project directory at all
+    { "action": "external_directory", "resource": "*", "effect": "deny" },
+
+    // Shell: hard floor on the destructive/irreversible stuff.
+    // Everything else still falls through to "ask" above.
+    { "action": "shell", "resource": "git push *", "effect": "deny" },
+    { "action": "shell", "resource": "rm -rf *", "effect": "deny" },
+    { "action": "shell", "resource": "sudo *", "effect": "deny" },
+    { "action": "shell", "resource": "git reset --hard *", "effect": "deny" },
+    { "action": "shell", "resource": "* | sh", "effect": "deny" },
+    { "action": "shell", "resource": "* | bash", "effect": "deny" },
+
+    // Edits: secrets and git internals stay denied even in build mode
+    { "action": "edit", "resource": "*.env", "effect": "deny" },
+    { "action": "edit", "resource": "*.env.*", "effect": "deny" },
+    { "action": "edit", "resource": "**/.git/*", "effect": "deny" },
+    { "action": "edit", "resource": "**/.ssh/*", "effect": "deny" }
+
+    // webfetch, websearch, subagent, and all edits/shell not listed above:
+    // no rule needed, they already fall through to the blanket "ask"
+  ],
+
+  "snapshots": true   // filesystem snapshots so you can undo AI edits
+}
